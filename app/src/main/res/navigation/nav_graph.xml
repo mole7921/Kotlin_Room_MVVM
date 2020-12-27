@@ -8,6 +8,29 @@
     <fragment
         android:id="@+id/tasksFragment"
         android:name="com.enzo.memolist.ui.tasks.TasksFragment"
-        android:label="fragment_tasks"
-        tools:layout="@layout/fragment_tasks" />
+        android:label="Tasks"
+        tools:layout="@layout/fragment_tasks">
+        <action
+            android:id="@+id/action_tasksFragment_to_addEditTasksFragment"
+            app:destination="@id/addEditTasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditTasksFragment"
+        android:name="com.enzo.memolist.ui.addedittasks.AddEditTasksFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_add_edit_task" >
+        <argument
+            android:name="task"
+            app:argType="com.enzo.memolist.data.Task"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+    <dialog
+        android:id="@+id/deleteAllCompletedDialogFragment"
+        android:name="com.enzo.memolist.ui.deleteallcompleted.DeleteAllCompletedDialogFragment"
+        android:label="DeleteAllCompletedDialogFragment" />
+    <action android:id="@+id/action_global_deleteAllCompletedDialogFragment" app:destination="@id/deleteAllCompletedDialogFragment" />
 </navigation>

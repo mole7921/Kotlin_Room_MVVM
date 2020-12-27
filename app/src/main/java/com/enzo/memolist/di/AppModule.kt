@@ -27,7 +27,7 @@ object AppModule {
         .build()
 
     @Provides
-    fun provideTaskDao(db: TaskDatabase) = db.taskDao()
+    fun provideTaskDao(Database: TaskDatabase) = Database.taskDao()
 
     @ApplicationScope
     @Provides
@@ -38,3 +38,4 @@ object AppModule {
 @Retention(AnnotationRetention.RUNTIME)
 @Qualifier
 annotation class ApplicationScope
+//區分不同實體
