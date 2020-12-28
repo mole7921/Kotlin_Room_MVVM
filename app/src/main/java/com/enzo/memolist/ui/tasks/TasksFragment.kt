@@ -69,6 +69,7 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), TasksAdapter.OnItemClic
 
         }
 
+        //承接edit or add頁面訊息
         setFragmentResultListener("add_edit_request") { _, bundle ->
             val result = bundle.getInt("add_edit_result")
             viewModel.onAddEditResult(result)
@@ -80,7 +81,7 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), TasksAdapter.OnItemClic
         }
 
 
-        //launchWhenStarted:對應 onStart()
+        //launchWhenStarted:對應 onStart(),否則stateFlow在background會更新ui造成crash
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.tasksEvent.collect {  event ->
                 when (event) {

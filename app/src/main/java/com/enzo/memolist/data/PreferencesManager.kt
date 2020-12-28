@@ -20,6 +20,8 @@ enum class SortOrder { BY_NAME, BY_DATE }
 
 data class FilterPreferences(val sortOrder: SortOrder, val hideCompleted: Boolean)
 
+
+//持有ＵＩ狀態提供給flow
 @Singleton
 class PreferencesManager @Inject constructor(@ApplicationContext context: Context) {
 
