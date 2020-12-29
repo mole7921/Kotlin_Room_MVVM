@@ -14,6 +14,7 @@ abstract class TaskDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TaskDao
 
+    //預設資料
     class Callback @Inject constructor(
         private val database: Provider<TaskDatabase>,
         @ApplicationScope private val applicationScope: CoroutineScope
@@ -36,4 +37,5 @@ abstract class TaskDatabase : RoomDatabase() {
             }
         }
     }
+
 }

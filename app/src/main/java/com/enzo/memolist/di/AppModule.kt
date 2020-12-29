@@ -26,6 +26,14 @@ object AppModule {
         .addCallback(callback)
         .build()
 
+//    Room啟動時將檢測version是否發生增加，如果有，
+//    那麼將找到Migration去執行特定的操作。
+//    如果沒有因為 fallbackToDestructiveMigration()，
+//    將會刪除資料庫並重建。
+
+//    踩坑資料：https://kknews.cc/zh-tw/code/zpbgyqg.html
+
+
     @Provides
     fun provideTaskDao(Database: TaskDatabase) = Database.taskDao()
 
